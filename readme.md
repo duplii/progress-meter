@@ -11,3 +11,5 @@ I am also including the `config.codekit` file so that everyone using Codekit wil
 ## Live demo
 
 A live demo of this project can be found at [duplii.com/call-progress/](http://duplii.com/call-progress/index.html "Duplii | Progress meter demo").
+
+<img src="http://duplii.s3.amazonaws.com/call-progress.jpg" width="463" height="275" alt="Call progress meter for Duplii.com" />
