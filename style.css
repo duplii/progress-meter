@@ -1,0 +1,48 @@
+img {
+  display: block; }
+
+.call-progress {
+  width: 273px;
+  height: 139px;
+  position: relative;
+  background-color: #EDEBEA;
+  z-index: 0;
+  overflow: hidden; }
+
+.call-progress__meter {
+  -webkit-animation: call-progress 5s linear;
+          animation: call-progress 5s linear;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top;
+  position: absolute;
+  left: 50%;
+  margin-left: -157px;
+  z-index: -1; }
+
+.call-progress:hover .call-progress__meter {
+  -webkit-animation-play-state: running;
+          animation-play-state: running; }
+
+@-webkit-keyframes call-progress {
+
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); } }
+
+@keyframes call-progress {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); } }
