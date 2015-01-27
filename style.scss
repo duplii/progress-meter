@@ -30,3 +30,24 @@ img {
 	from { transform: rotate(0) }
 	to { transform: rotate(180deg) }
 }
+
+/**************************************************/
+/***************** general styles *****************/
+/**************************************************/
+
+body {
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	color: #938F8D;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.logo {
+	width: 63px;
+}
+
+.call-progress {
+	margin: 70px auto 100px;
+}
