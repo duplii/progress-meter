@@ -8,6 +8,8 @@ The timer is set at 90 seconds. This is a reasonable time for our use-case, but 
 
 Initially, the element was built using an svg-only, self-contained solution, but that would not work in Internet Explorer, so I reverted back to a css animated solution for broader compatibility. That initial stab is still available in the repo in the file `call-progress.svg`.
 
+Only the styles contained in `animation.scss` are relevant to the animation itself. The styles in style.scss are just for presentational purposes.
+
 I am also including the `config.codekit` file so that everyone using Codekit will be able to get started immediately.
 
 ## Live demo
