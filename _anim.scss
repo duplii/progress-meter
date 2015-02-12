@@ -1,0 +1,36 @@
+/* Put here animation specific styles */
+
+.call-progress {
+	width: 273px;
+	height: 139px;
+	position: relative;
+	background-color: #EDEBEA;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.call-progress__mask,
+.call-progress__meter {
+	display: block;
+}
+
+.call-progress__meter {
+	position: absolute;
+	left: 50%;
+	margin-left: -157px;
+	z-index: -1;
+	animation: call-progress 5s linear;
+	animation-fill-mode: both;
+	animation-play-state: paused;
+	transform-origin: center top;
+}
+
+.call-progress.call-progress--running .call-progress__meter {
+	// By applying the class class-progress--running to the parent element, we start the animating the meter behind the mask.
+	animation-play-state: running;
+}
+
+@keyframes call-progress {
+	from { transform: rotate(0) }
+	to { transform: rotate(180deg) }
+}

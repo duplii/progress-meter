@@ -1,0 +1,46 @@
+/**************************************************/
+/******************* variables ********************/
+/**************************************************/
+
+$orange: #FF5F19;
+$white: #FFFFFF;
+$main: #938F8D;
+$mainTitles: #5A5655;
+$lightGray: #D1CDCB;
+$darkGray: #979797;
+
+/**************************************************/
+/***************** general styles *****************/
+/**************************************************/
+
+body {
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	color: #938F8D;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+a {
+	color: $orange;
+	text-decoration: none;
+}
+
+small {
+	cursor: pointer;
+}
+
+.logo {
+	width: 63px;
+}
+
+.call-progress {
+	margin: 70px auto 100px;
+}
+
+/**************************************************/
+/*************** animation specific ***************/
+/**************************************************/
+
+@import "_anim.scss";

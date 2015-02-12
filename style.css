@@ -1,0 +1,77 @@
+/**************************************************/
+/******************* variables ********************/
+/**************************************************/
+/**************************************************/
+/***************** general styles *****************/
+/**************************************************/
+body {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: #938F8D;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px; }
+
+a {
+  color: #FF5F19;
+  text-decoration: none; }
+
+small {
+  cursor: pointer; }
+
+.logo {
+  width: 63px; }
+
+.call-progress {
+  margin: 70px auto 100px; }
+
+/**************************************************/
+/*************** animation specific ***************/
+/**************************************************/
+/* Put here animation specific styles */
+.call-progress {
+  width: 273px;
+  height: 139px;
+  position: relative;
+  background-color: #EDEBEA;
+  z-index: 0;
+  overflow: hidden; }
+
+.call-progress__mask, .call-progress__meter {
+  display: block; }
+
+.call-progress__meter {
+  position: absolute;
+  left: 50%;
+  margin-left: -157px;
+  z-index: -1;
+  -webkit-animation: call-progress 5s linear;
+          animation: call-progress 5s linear;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top; }
+
+.call-progress.call-progress--running .call-progress__meter {
+  -webkit-animation-play-state: running;
+          animation-play-state: running; }
+
+@-webkit-keyframes call-progress {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); } }
+
+@keyframes call-progress {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); } }
