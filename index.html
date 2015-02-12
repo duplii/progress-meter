@@ -21,6 +21,12 @@
 		<img src="meter.svg" alt="" class="call-progress__meter"/>
 	</div>
 	
-	<small>Hover over the element to trigger the animation</small>
+	<small onclick="toggleCallProgress()">Click here to toggle the animation</small>
+	
+	<script>
+		function toggleCallProgress() {
+			document.querySelector('.call-progress').classList.toggle('call-progress--running');
+		}
+	</script>
 </body>
 </html>

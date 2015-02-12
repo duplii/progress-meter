@@ -37,7 +37,14 @@ small {
   z-index: 0;
   overflow: hidden; }
 
+.call-progress__mask, .call-progress__meter {
+  display: block; }
+
 .call-progress__meter {
+  position: absolute;
+  left: 50%;
+  margin-left: -157px;
+  z-index: -1;
   -webkit-animation: call-progress 5s linear;
           animation: call-progress 5s linear;
   -webkit-animation-fill-mode: both;
@@ -46,22 +53,16 @@ small {
           animation-play-state: paused;
   -webkit-transform-origin: center top;
       -ms-transform-origin: center top;
-          transform-origin: center top;
-  position: absolute;
-  left: 50%;
-  margin-left: -157px;
-  z-index: -1; }
+          transform-origin: center top; }
 
-.call-progress:hover .call-progress__meter {
+.call-progress.call-progress--running .call-progress__meter {
   -webkit-animation-play-state: running;
           animation-play-state: running; }
 
 @-webkit-keyframes call-progress {
-
   from {
     -webkit-transform: rotate(0);
             transform: rotate(0); }
-
   to {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg); } }
