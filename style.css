@@ -45,8 +45,8 @@ small {
   left: 50%;
   margin-left: -157px;
   z-index: -1;
-  -webkit-animation: call-progress 5s linear;
-          animation: call-progress 5s linear;
+  -webkit-animation: call-progress 90s linear;
+          animation: call-progress 90s linear;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-play-state: paused;
