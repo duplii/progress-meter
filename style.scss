@@ -1,35 +1,4 @@
-img {
-	display: block;
-}
 
-.call-progress {
-	width: 273px;
-	height: 139px;
-	position: relative;
-	background-color: #EDEBEA;
-	z-index: 0;
-	overflow: hidden;
-}
-
-.call-progress__meter {
-	animation: call-progress 5s linear;
-	animation-fill-mode: both;
-	animation-play-state: paused;
-	transform-origin: center top;
-	position: absolute;
-	left: 50%;
-	margin-left: -157px;
-	z-index: -1;
-}
-
-.call-progress:hover .call-progress__meter {
-	animation-play-state: running;
-}
-
-@keyframes call-progress {
-	from { transform: rotate(0) }
-	to { transform: rotate(180deg) }
-}
 
 /**************************************************/
 /***************** general styles *****************/
@@ -51,3 +20,9 @@ body {
 .call-progress {
 	margin: 70px auto 100px;
 }
+
+/**************************************************/
+/*************** animation specific ***************/
+/**************************************************/
+
+@import "_anim.scss";
