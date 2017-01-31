@@ -1,49 +1,109 @@
 /**************************************************/
 /*************** animation specific ***************/
 /**************************************************/
-.call-progress {
-  width: 273px;
-  height: 139px;
+.progress-indicator-wrapper {
   position: relative;
-  background-color: #EDEBEA;
-  z-index: 0;
-  overflow: hidden; }
+  width: 140px;
+  height: 140px; }
 
-.call-progress__mask, .call-progress__meter {
-  display: block; }
-
-.call-progress__meter {
+.avatar.mod-call-progress {
   position: absolute;
-  left: 50%;
-  margin-left: -157px;
-  z-index: -1;
-  -webkit-animation: call-progress 90s linear;
-          animation: call-progress 90s linear;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-  -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
-          transform-origin: center top; }
+  top: 5px;
+  left: 5px;
+  z-index: 1; }
 
-.call-progress.call-progress--running .call-progress__meter {
-  -webkit-animation-play-state: running;
-          animation-play-state: running; }
+.dial-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 70px; }
+  .is-pulsing .dial-container {
+    -webkit-animation: pulse .4s ease-out infinite alternate;
+            animation: pulse .4s ease-out infinite alternate; }
 
-@-webkit-keyframes call-progress {
-  from {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); }
-  to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg); } }
+.wedge {
+  height: 140px;
+  width: 70px; }
+  .mod-running .wedge {
+    -webkit-animation-play-state: running !important;
+            animation-play-state: running !important; }
 
-@keyframes call-progress {
-  from {
-    -webkit-transform: rotate(0);
-            transform: rotate(0); }
+.container1 {
+  left: 70px;
+  -webkit-transform-origin: left center;
+          transform-origin: left center; }
 
-  to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg); } }
+.container1 .wedge {
+  -webkit-animation: rotate-bg-1 9s linear both paused, bg-color 9s linear both paused;
+          animation: rotate-bg-1 9s linear both paused, bg-color 9s linear both paused;
+  border-radius: 0 140px 140px 0;
+  left: 0;
+  -webkit-transform-origin: left center;
+          transform-origin: left center; }
+
+.container2 {
+  left: 0;
+  -webkit-transform-origin: right center;
+          transform-origin: right center; }
+
+.container2 .wedge {
+  -webkit-animation: rotate-bg-2 9s linear both paused, bg-color 9s linear both paused;
+          animation: rotate-bg-2 9s linear both paused, bg-color 9s linear both paused;
+  border-radius: 140px 0 0 140px;
+  -webkit-transform-origin: right center;
+          transform-origin: right center; }
+
+/* First animation moves 180 degrees in the first 2 seconds */
+@-webkit-keyframes rotate-bg-1 {
+  0% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg); }
+  50%, 100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg); } }
+@keyframes rotate-bg-1 {
+  0% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg); }
+  50%, 100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg); } }
+
+/* Second animation moves 180 degrees in the last 2 seconds */
+@-webkit-keyframes rotate-bg-2 {
+  0%, 50% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg); }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg); } }
+@keyframes rotate-bg-2 {
+  0%, 50% {
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg); }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg); } }
+
+@-webkit-keyframes bg-color {
+  0% {
+    background-color: white; }
+  100% {
+    background-color: #e82e0b; } }
+
+@keyframes bg-color {
+  0% {
+    background-color: white; }
+  100% {
+    background-color: #e82e0b; } }
+
+@-webkit-keyframes pulse {
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); } }
+
+@keyframes pulse {
+  100% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); } }

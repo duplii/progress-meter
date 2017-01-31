@@ -17,16 +17,30 @@
 		<a href="http://duplii.com" title="Duplii | We Make Duplication Happen"><img src="//duplii.com/images/duplii-logo.svg" alt="Duplii | We Make Duplication Happen" class="logo" /></a>
 	</header>
 	
-	<div class="call-progress">
-		<img src="mask.svg" alt="" class="call-progress__mask"/>
-		<img src="meter.svg" alt="" class="call-progress__meter"/>
+	<div class="progress-indicator-wrapper">
+	    <img src="caller-pictures.jpg" class="avatar mod-130 mod-call-progress" alt="" />
+        <div class="dial-container container1">
+            <div class="wedge"></div>
+        </div>
+        <div class="dial-container container2">
+            <div class="wedge"></div>
+        </div>
 	</div>
 	
 	<small onclick="toggleCallProgress()">Click here to toggle the animation</small>
 	
 	<script>
+	    var progressElement = document.querySelector('.progress-indicator-wrapper');
+	    
 		function toggleCallProgress() {
-			document.querySelector('.call-progress').classList.toggle('call-progress--running');
+			progressElement.classList.toggle('mod-running');
+			pulse();
+		}
+		
+		function pulse() {
+		    progressElement.addEventListener('webkitAnimationEnd', function () {
+		        progressElement.classList.add('is-pulsing');
+		    }, {once: true});
 		}
 	</script>
 </body>

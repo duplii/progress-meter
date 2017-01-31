@@ -2,37 +2,87 @@
 /*************** animation specific ***************/
 /**************************************************/
 
-.call-progress {
-	width: 273px;
-	height: 139px;
+$base-size: 140px;
+
+.progress-indicator-wrapper {
 	position: relative;
-	background-color: #EDEBEA;
-	z-index: 0;
-	overflow: hidden;
+	width: $base-size;
+	height: $base-size;
 }
-
-.call-progress__mask,
-.call-progress__meter {
-	display: block;
-}
-
-.call-progress__meter {
+.avatar.mod-call-progress {
 	position: absolute;
-	left: 50%;
-	margin-left: -157px;
-	z-index: -1;
-	animation: call-progress 90s linear;
-	animation-fill-mode: both;
-	animation-play-state: paused;
-	transform-origin: center top;
+	top: 5px;
+	left: 5px;
+	z-index: 1;
+}
+.dial-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+	width: $base-size / 2;
+	
+	.is-pulsing & {
+	    animation: pulse .4s ease-out infinite alternate;
+	}
+}
+.wedge {
+	
+	height: $base-size;
+	width: $base-size / 2;
+	
+	.mod-running & {
+	    animation-play-state: running !important;
+	}
+}
+.container1 {
+	left: $base-size / 2;
+	transform-origin: left center;
+}
+.container1 .wedge {
+	animation: rotate-bg-1 9s linear both paused, bg-color 9s linear both paused;
+	border-radius: 0 $base-size $base-size 0;
+	left: 0;
+	transform-origin: left center;
+}
+.container2 {
+	left: 0;
+	transform-origin: right center;
+}
+.container2 .wedge {
+	animation: rotate-bg-2 9s linear both paused, bg-color 9s linear both paused;
+	border-radius: $base-size 0 0 $base-size;
+	transform-origin: right center;
+}
+/* First animation moves 180 degrees in the first 2 seconds */
+@keyframes rotate-bg-1 {
+	0% {
+		transform: rotateZ(180deg);
+	}
+	50%, 100% {
+		transform: rotateZ(360deg);
+	}
+}
+/* Second animation moves 180 degrees in the last 2 seconds */
+@keyframes rotate-bg-2 {
+	0%, 50% {
+		transform: rotateZ(180deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
 }
 
-.call-progress.call-progress--running .call-progress__meter {
-	// By applying the class class-progress--running to the parent element, we start the animating the meter behind the mask.
-	animation-play-state: running;
+@keyframes bg-color {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: #e82e0b;
+    }
 }
-
-@keyframes call-progress {
-	from { transform: rotate(0) }
-	to { transform: rotate(180deg) }
+@keyframes pulse {
+    100% {
+        transform: scale(1.1);
+    }
 }
