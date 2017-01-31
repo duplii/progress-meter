@@ -1,6 +1,7 @@
 /**************************************************/
 /*************** animation specific ***************/
 /**************************************************/
+/* This is an adaptation of this clever technique: https://cssanimation.rocks/watch/ */
 .progress-indicator-wrapper {
   position: relative;
   width: 140px;
@@ -19,8 +20,8 @@
   overflow: hidden;
   width: 70px; }
   .is-pulsing .dial-container {
-    -webkit-animation: pulse .4s ease-out infinite alternate;
-            animation: pulse .4s ease-out infinite alternate; }
+    -webkit-animation: pulse .5s ease-out infinite alternate;
+            animation: pulse .5s ease-out infinite alternate; }
 
 .wedge {
   height: 140px;
@@ -28,6 +29,9 @@
   .mod-running .wedge {
     -webkit-animation-play-state: running !important;
             animation-play-state: running !important; }
+  .is-pulsing .wedge {
+    background-image: none !important;
+    background-color: #e82e0b; }
 
 .container1 {
   left: 70px;
@@ -37,6 +41,10 @@
 .container1 .wedge {
   -webkit-animation: rotate-bg-1 9s linear both paused, bg-color 9s linear both paused;
           animation: rotate-bg-1 9s linear both paused, bg-color 9s linear both paused;
+  background-image: -webkit-linear-gradient(white 0%, #FAD961 90%);
+  background-image: linear-gradient(white 0%, #FAD961 90%);
+  /* The background size needs to be huge so we can show the correct color at the junction between the two wedges. So clever. */
+  background-size: 100% 2000%;
   border-radius: 0 140px 140px 0;
   left: 0;
   -webkit-transform-origin: left center;
@@ -50,60 +58,77 @@
 .container2 .wedge {
   -webkit-animation: rotate-bg-2 9s linear both paused, bg-color 9s linear both paused;
           animation: rotate-bg-2 9s linear both paused, bg-color 9s linear both paused;
+  background-image: -webkit-linear-gradient(bottom, #FAD961 10%, #e82e0b 50%);
+  background-image: linear-gradient(to top, #FAD961 10%, #e82e0b 50%);
+  /* The background size needs to be huge so we can show the correct color at the junction between the two wedges. So clever. */
+  background-size: 100% 2000%;
+  background-position: bottom;
   border-radius: 140px 0 0 140px;
   -webkit-transform-origin: right center;
           transform-origin: right center; }
 
-/* First animation moves 180 degrees in the first 2 seconds */
+/* First animation. We rotate the wedge into view and resize the bg so that it always show the color we want at the junctions. The intermediate step is used to have a slightly more progressive transition. */
 @-webkit-keyframes rotate-bg-1 {
   0% {
     -webkit-transform: rotateZ(180deg);
             transform: rotateZ(180deg); }
+  25% {
+    background-size: 100% 500%; }
   50%, 100% {
     -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg); } }
+            transform: rotateZ(360deg);
+    background-size: 100% 100%; } }
 @keyframes rotate-bg-1 {
   0% {
     -webkit-transform: rotateZ(180deg);
             transform: rotateZ(180deg); }
+  25% {
+    background-size: 100% 500%; }
   50%, 100% {
     -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg); } }
+            transform: rotateZ(360deg);
+    background-size: 100% 100%; } }
 
-/* Second animation moves 180 degrees in the last 2 seconds */
+/* Second animation. We rotate the wedge into view and resize the bg so that it always show the color we want at the junctions. The intermediate step is used to have a slightly more progressive transition. */
 @-webkit-keyframes rotate-bg-2 {
   0%, 50% {
     -webkit-transform: rotateZ(180deg);
             transform: rotateZ(180deg); }
+  75% {
+    background-size: 100% 500%; }
   100% {
     -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg); } }
+            transform: rotateZ(360deg);
+    background-size: 100% 100%; } }
 @keyframes rotate-bg-2 {
   0%, 50% {
     -webkit-transform: rotateZ(180deg);
             transform: rotateZ(180deg); }
+  75% {
+    background-size: 100% 500%; }
   100% {
     -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg); } }
+            transform: rotateZ(360deg);
+    background-size: 100% 100%; } }
 
 @-webkit-keyframes bg-color {
   0% {
-    background-color: white; }
+    /*background-color: #FAD961;*/ }
   100% {
-    background-color: #e82e0b; } }
+    /*background-color: #e82e0b;*/ } }
 
 @keyframes bg-color {
   0% {
-    background-color: white; }
+    /*background-color: #FAD961;*/ }
   100% {
-    background-color: #e82e0b; } }
+    /*background-color: #e82e0b;*/ } }
 
 @-webkit-keyframes pulse {
   100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); } }
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); } }
 
 @keyframes pulse {
   100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); } }
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); } }
