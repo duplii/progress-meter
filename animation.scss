@@ -33,7 +33,7 @@ $animation-duration: 9s;
 	height: $base-size;
 	width: $base-size / 2;
 	
-	.mod-running & {
+	.is-running & {
 	    animation-play-state: running !important;
 	}
 	
@@ -94,15 +94,7 @@ $animation-duration: 9s;
 		background-size: 100% 100%;
 	}
 }
-
-@keyframes bg-color {
-    0% {
-        /*background-color: #FAD961;*/
-    }
-    100% {
-        /*background-color: #e82e0b;*/
-    }
-}
+/* Pulsing animation to be added after the other animations end. */
 @keyframes pulse {
     100% {
         transform: scale(1.05);

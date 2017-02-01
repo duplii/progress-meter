@@ -26,7 +26,7 @@
 .wedge {
   height: 140px;
   width: 70px; }
-  .mod-running .wedge {
+  .is-running .wedge {
     -webkit-animation-play-state: running !important;
             animation-play-state: running !important; }
   .is-pulsing .wedge {
