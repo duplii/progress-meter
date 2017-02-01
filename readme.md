@@ -16,4 +16,4 @@ I am also including the `config.codekit` file so that everyone using Codekit wil
 
 A live demo of this project can be found at [duplii.github.io/progress-meter](http://duplii.github.io/progress-meter "Duplii | Progress meter demo").
 
-<img src="http://duplii.s3.amazonaws.com/call-progress.jpg" width="463" height="275" alt="Call progress meter for Duplii.com" />
+<img src="https://duplii.s3.amazonaws.com/call-progress.jpg" width="463" height="275" alt="Call progress meter for Duplii.com" />
